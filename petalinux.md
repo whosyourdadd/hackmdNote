@@ -1,7 +1,10 @@
-
 # 使用petalinux建立image
 ![image alt](https://img-blog.csdnimg.cn/9d224d64d2964170b8abefe168458c53.png)
 
+## 目錄
+* [指令](##指令)
+* [Module或APP設定](##Module或APP設定)
+* [build_image](##build_image)
 
 
 ## 指令
