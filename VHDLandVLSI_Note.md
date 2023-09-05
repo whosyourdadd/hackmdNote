@@ -4,10 +4,10 @@
 * 自學網站: http://www.asic-world.com/
 * IP 交易平台: https://www.design-reuse.com/
 * 類似leetcode: https://hdlbits.01xz.net/wiki/Step_one
-*　[中原電機讀書會](https://sites.google.com/site/cycueehdlsg/)
-http://www.mwftr.com/SoCs14/verilog_intro_2002.pdf
-  http://www.csd.nutn.edu.tw/materials.htm
-  https://hom-wang.gitbooks.io/verilog-hdl/content/Chapter_06.html
+* [中原電機讀書會](https://sites.google.com/site/cycueehdlsg/)
+* http://www.mwftr.com/SoCs14/verilog_intro_2002.pdf
+* (好像不能用了)http://www.csd.nutn.edu.tw/materials.htm
+* (一些基本的簡介)https://hom-wang.gitbooks.io/verilog-hdl/content/Chapter_06.html
 
 
 
