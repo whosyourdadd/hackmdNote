@@ -1,15 +1,22 @@
-# VHDLandVLSI_Note
+# NCHU VHDL_Class and VLSI Note
 如標題
+* [上課用的開發板](https://store.digilentinc.com/basys-3-artix-7-fpga-trainer-board-recommended-for-introductory-users/)
+* 自學網站: http://www.asic-world.com/
+* IP 交易平台: https://www.design-reuse.com/
+* 類似leetcode: https://hdlbits.01xz.net/wiki/Step_one
+*　[中原電機讀書會](https://sites.google.com/site/cycueehdlsg/)
+http://www.mwftr.com/SoCs14/verilog_intro_2002.pdf
+  http://www.csd.nutn.edu.tw/materials.htm
+  https://hom-wang.gitbooks.io/verilog-hdl/content/Chapter_06.html
 
-# VHDL_Verilog上課筆記
-上課用的開發板
-https://store.digilentinc.com/basys-3-artix-7-fpga-trainer-board-recommended-for-introductory-users/
-自學網站
-http://www.asic-world.com/
 
 
-IP 交易平台
-https://www.design-reuse.com/
+
+
+
+
+## VHDL_Verilog上課筆記
+
 
 ```shell=
 ##$ source /opt/Xilinx/Vivado/2017.4/settings64.sh
@@ -24,12 +31,8 @@ $ vivado
 * 那麼準備方向就會是，logic circuit熟練，design flow了解，verilog熟練
 
 
-https://hdlbits.01xz.net/wiki/Step_one
-
-
-
-## 章節重點整理
-### ch1
+### 章節重點整理
+#### ch1
 * Typical Design Flow
 * Hardware synthesis
 ![](https://i.imgur.com/bn9yxe7.png =60%x)
@@ -37,7 +40,7 @@ https://hdlbits.01xz.net/wiki/Step_one
 assign block
 assign non-block
 
-### ch2 Hierarchical Modeling and simulate
+#### ch2 Hierarchical Modeling and simulate
 * Hierarchical Modeling
     * four levels : Behavioral , data flow gate level, switch
     * top-down bottom-up
@@ -50,7 +53,7 @@ assign non-block
     * $stop 暫停模擬
     * $finish 中止模擬
 
-### ch3_verilog_basic_concept
+#### ch3_verilog_basic_concept
 * comment // /* ... */
 * operator +-&|
 * number
@@ -90,7 +93,7 @@ assign non-block
     * wire  需搭配assign使用
     * reg 需搭配always block使用
       
-### ch4 module ,ch5 Gate-level Modeling (2 basic class)
+#### ch4 module ,ch5 Gate-level Modeling (2 basic class)
 * and/or gate
   and or xor nand nor xnor
 * buf/not gate
@@ -106,15 +109,15 @@ assign non-block
 
 * delay -- rise/fall/turn-off delay
     turn off delay 其他值到高阻抗的延遲時間
-### ch6 Dataflow Modeling
+#### ch6 Dataflow Modeling
  
 *    驅動某值至net ( 等號左式只能是net，右式可以是 net 或 reg )
 *    資料流層次的描述方式，只能敘述組合邏輯電路( 不含有記憶性電路 )
 *    但輸出不可以包含輸入( EX : a = a + b; → 隱含有記憶性 → 錯誤 )
 
 
-## 雜記
-### DIP
+### 雜記
+#### DIP
 
 數位ic的基礎,
 
@@ -126,7 +129,7 @@ verilog language review
 hardware desigh review
 verilog ide review
 
-# VSLI_Design_大型積體電路設計
+## VSLI_Design_大型積體電路設計
 
 * Introduction
 * Logic Design with MOSFETs
@@ -142,18 +145,11 @@ verilog ide review
 
 
 
-https://hom-wang.gitbooks.io/verilog-hdl/content/Chapter_06.html
-
-[中原電機讀書會](https://sites.google.com/site/cycueehdlsg/)
-
-http://www.mwftr.com/SoCs14/verilog_intro_2002.pdf
-
-http://www.csd.nutn.edu.tw/materials.htm
 --
 
-## Ch2 Logic Design with MOSFETs
+### Ch2 Logic Design with MOSFETs
 
-### DIGITAL LOGIC
+#### DIGITAL LOGIC
 
 數位邏輯電路用來運行邏輯值，通常被電壓範圍代表，這些1/0 high/low true false透過MOSFET計算建構出來，而這些元件是類比的。電壓界於VDD~臨界區間是1，臨界電壓至0 GND是0，如果電壓界於臨界區間之間，在未定義區域邏輯會出問題。
 
@@ -165,7 +161,7 @@ http://www.csd.nutn.edu.tw/materials.htm
 
 Figure 1	Fig. 1: Mapping from voltages to logical values. Voltages between ground and a certain threshold represent the logical value 0. Voltages between a higher threshold and VDD represent the logical value 1. The threshold levels are design choices. If a voltage falls in the gap between the defined logical ranges, the result is undefined and there must be an error in the logic circuit that produced it.
 
-### MOSFET APPROXIMATIONS
+#### MOSFET APPROXIMATIONS
 
 MOSFETs can be approximated as either open or short circuits between drain and source.
 MOSFET透過集極D，源極S來區近開/短路迴路
@@ -179,7 +175,7 @@ NMOS的Drain通常在上，SOURCE通常在下，PMOS剛好相反並且Gate有個
 
 
 
-### CMOS LOGIC CIRCUITS
+#### CMOS LOGIC CIRCUITS
 
 CMOS = NMOS+PMOS的電晶體組成。如下圖所示:
 
