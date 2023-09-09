@@ -1,5 +1,6 @@
 # SystemVerilog
-很久之前的讀書筆記，來源有點不可考了@@
+很久之前的讀書筆記，參考2020_Book_SystemVerilogForHardwareDescri
+(Path: Doc/HDL/ref_doc)
 
 ## ch1 introduce
 驗證複雜的soc是一件花時間的工作，現在有更多的方法論改善收斂發法，從block level,top level,chip level
@@ -9,7 +10,7 @@
 3. architecure and microarchieure for design
 4. rtl design use systemverilog
 5. rtl verification using system verilog
-6. logic synthesis
+6. logic synthesisv
 7. design for test
 8. prelayout sta
 ## ch2 SystemVerilog Literal Values and Data Types
