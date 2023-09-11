@@ -77,3 +77,23 @@ int main(int argc,char **argv){
   return 0; 
 }
 ```
+
+# 常見的題目
+## 同步問題
+* 使用原則
+    * 盡量減少critical section的處理時間
+* spinlock\mutex\samphone差異與使用時機
+* atomic
+    * 在程式加入這個宣告綴詞可以讓"read-modify-write"的命令包起來，只讓一個CPU取得memory bus使用權
+* KERNEL SPACE內的程式是共享的(記憶體空間也是)，在多CPU使用下只有一個thread可以進到CS
+* semaphore 
+    * 有人進到CS之後，其他人沒拿到KEY，會在外面SLEEP，CPU就先做其他事，KEY被釋放就會喚醒一個context出來工作
+    * Down() 進到Sleep，送signal都不會結束甚至Ctrl+c or kill，一直到取得sem
+    * down_interruptibale()可以被解除
+    * 一般都使用down()，down_interruptibale()通常用在socket interface
+
+    * spinlock就原地等待，保證每次都鎖的到，多核好用   
+* completion
+    * 呼叫wait_completion會一直sleep到呼叫completion()
+    * 如果進到呼叫wait_completion前就completion()也不會鎖死
+* 在irq裡面不能用sem跟completion(類sleep都不行)，所以進到irq之前要先禁止中斷
