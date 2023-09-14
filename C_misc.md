@@ -2,6 +2,19 @@
 # C_Misc
 記錄一些小範例
 
+## 工作遇到的小問題
+```clike=
+//sprintf segmentation fault
+char fileName[64]
+int num = 100;
+sprintf(fileName,./SomeFolder/CsvData_%d.csv,num); //ubuntu ok but xilinx os will segmentation fault
+ReadCSVFile(fileName);
+//比較好的寫法
+...
+sprintf(fileName,.//SomeFolder//CsvData_%d.csv,num); //
+...
+```
+
 ## ptr_casting
 ```clike=
 //little endian or big endian checking
