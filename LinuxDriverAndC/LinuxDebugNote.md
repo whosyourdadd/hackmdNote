@@ -25,6 +25,14 @@
 * mount /dev/hda1 /mnt
     > 将 /dev/hda1 挂在 /mnt 之下。
 
+在 linux 系統內
+找有"spi" 的  debug message
+dmesg | grep spi
+
+
+尋找 "failed to transfer" 在 .c 檔裡
+grep -r "failed to transfer" --include=*.c
+
 ## dailyProblem
 
 ### 20230915 debug read only problem
