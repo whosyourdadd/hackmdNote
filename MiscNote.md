@@ -1,5 +1,7 @@
 # MiscNote
 
+
+
 ## 5G NR
 * https://opencores.org/projects
 * https://github.com/catkira
