@@ -1,6 +1,15 @@
 # makefile_misc
+## 參考資料
+* makefile
+    * [Makefile編寫要點](https://hackmd.io/@zero6992/r1ePe1lFt)
+    * [Makefile 語法和示範](/XdF11cBIR8aahe8bxU7gfw)
+    * [手把手教你寫makefile](https://www.readfog.com/a/1685591356715667456)
+        * gcc -o是決定輸出檔的名稱
+        * gcc -c是指輸出obj未做link
+        * gcc -DDEBUG是preprocessor的時候使用DEBUG這個define 
 
 
+## 範例
 
 ```shell
 TARGET = TDQ16_unittest
