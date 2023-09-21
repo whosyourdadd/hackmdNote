@@ -77,13 +77,14 @@ https://github.com/NonerKao/syscall30
     > <project name>/project-spec/meta-user/recipes-apps/  
 
 2. 改成自己所需的moudle以後編譯  
-    ```petalinux-build```  
-    ```petalinux-config -c rootfs```  
-3. 檢查是否可以在選單中找到module  
+    ```petalinux-build```   
+    ```petalinux-build -c myapp```      
+    ```petalinux-config -c rootfs```   
+4. 檢查是否可以在選單中找到module  
     在專案中可以在以下路徑找到.ko檔  
     project-name/build/tmp/sysroots-components/zynqmp_generic/blink/lib/modules/5.10.0-xilinx-v2021.2/extra/blink.ko
 
-4. 開機後可以在以下路徑找到module driver
+5. 開機後可以在以下路徑找到module driver
     > /lib/modules/5.10.0-xilinx-v2021.2/extra/
 
 
