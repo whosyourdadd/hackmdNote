@@ -12,9 +12,9 @@
 
 ## 連結
 
-Petalinux设计流程:  https://blog.csdn.net/weixin_55796564/article/details/128477894
-Vitis下Linux应用程序开发流程: https://blog.csdn.net/clj609/article/details/115442338
-petalinux 修改设备树: https://www.cnblogs.com/YYFaGe/p/14453608.html
+Petalinux设计流程:  https://blog.csdn.net/weixin_55796564/article/details/128477894  
+Vitis下Linux应用程序开发流程: https://blog.csdn.net/clj609/article/details/115442338  
+petalinux 修改设备树: https://www.cnblogs.com/YYFaGe/p/14453608.html  
 
 * Driver 
     * spi-zynqmp-gqspi.c 
@@ -71,20 +71,20 @@ Failed to boot. Image file '/<project-path>/pre-built/linux/images/pmu_rom_qemu_
 
 ---
 ## Module或APP設定
-1. create module sample
-$ petalinux-create -t modules -n modulename --enable
-$ petalinux-create -t apps -n myapp --enable
-    >(名稱不要大寫編譯會過不了)
-    > 可以在以下路徑找到
-    > <project name>/project-spec/meta-user/recipes-modules/
-    > <project name>/project-spec/meta-user/recipes-apps/
+1. create module sample  
+$ petalinux-create -t modules -n modulename --enable  
+$ petalinux-create -t apps -n myapp --enable  
+    >(名稱不要大寫編譯會過不了)  
+    > 可以在以下路徑找到  
+    > <project name>/project-spec/meta-user/recipes-modules/  
+    > <project name>/project-spec/meta-user/recipes-apps/  
 
-2. 改成自己所需的moudle以後編譯
-    petalinux-build
-    petalinux-config -c rootfs
-3. 檢查是否可以在選單中找到module
-    在專案中可以在以下路徑找到.ko檔
-    > project-name/build/tmp/sysroots-components/zynqmp_generic/blink/lib/modules/5.10.0-xilinx-v2021.2/extra/blink.ko
+2. 改成自己所需的moudle以後編譯  
+    ```petalinux-build```  
+    ```petalinux-config -c rootfs```  
+3. 檢查是否可以在選單中找到module  
+    在專案中可以在以下路徑找到.ko檔  
+    project-name/build/tmp/sysroots-components/zynqmp_generic/blink/lib/modules/5.10.0-xilinx-v2021.2/extra/blink.ko
 
 4. 開機後可以在以下路徑找到module driver
     > /lib/modules/5.10.0-xilinx-v2021.2/extra/
