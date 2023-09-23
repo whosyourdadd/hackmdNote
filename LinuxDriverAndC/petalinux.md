@@ -7,7 +7,8 @@
   - [連結](#連結)
   - [指令](#指令)
   - [Module或APP設定](#module或app設定)
-  - [build\_image](#build_image)
+  - [Devicetree](#DeviceTree)
+  - [build_image](#build_image)
 
 
 ## 連結
@@ -88,9 +89,15 @@ https://github.com/NonerKao/syscall30
     > /lib/modules/5.10.0-xilinx-v2021.2/extra/
 
 ## DeviceTree  
-```petalinux-config -c device-tree```可以編譯出```image.ub```，此為系統所使用的devicetree,
-* 以下為DeviceTree兩個node的寫法
+* ```petalinux-build -c device-tree```可以編譯出```image.ub```，此為系統所使用的devicetree,也可透過petalinux-build直接對全編譯  
+* 如果你的功能都沒改只有動device tree可以只更新image.ub加快開發速度
+* 以下為DeviceTree兩個node的寫法  
+  ```ls /dev/spidev*``` 可得```/dev/spidev1.0  /dev/spidev1.1```
 ```
+/include/ "system-conf.dtsi"
+/ {
+
+};
 &spi0 {
 	status = "okay";
 	num-cs = <2>;
@@ -104,11 +111,19 @@ https://github.com/NonerKao/syscall30
 		spi-max-frequency = <200000000>;
 		reg = <1>;
 	};
-* 以下為兩個PS SPI都使用的寫法，記得要改好XSA，否則開機modprobe就會有錯誤訊息，無法產生node
+};
+```  
+* 以下為兩個PS SPI都使用的寫法，記得要改好XSA，否則開機modprobe就會有錯誤訊息，無法產生node  
+  ```ls /dev/spidev*``` 可得```/dev/spidev1.0  /dev/spidev1.1  /dev/spidev2.0```
+
 ```
-&spi0 {
-	status = "okay";
-	num-cs = <2>;
+/include/ "system-conf.dtsi"
+/ {
+
+};
+&spi0 {				/* &表示繼承default device tree */
+	status = "okay";	/* default都是"disable，要用到就要改成ok" */
+	num-cs = <2>;		/* 因為有兩個node會有兩個cs所以num-cs為2 */
 	spidev@0 {
 		compatible = "rohm,dh2228fv";
 		spi-max-frequency = <200000000>;
@@ -121,9 +136,9 @@ https://github.com/NonerKao/syscall30
 	};
 };	
 
-&spi1 {
+&spi1 {				/*& 表示繼承default device tree */
 	status = "okay";
-	num-cs = <1>;
+	num-cs = <1>;		/* 因為有一個node會有兩個cs所以num-cs為1 */
 	spidev@0 {
 		compatible = "rohm,dh2228fv";
 		spi-max-frequency = <200000000>;
@@ -131,6 +146,34 @@ https://github.com/NonerKao/syscall30
 	};
 };	
 ```
+* 也可以這樣寫(一個節點的寫法
+```
+/include/ "system-conf.dtsi"
+/ {
+	amba: axi {
+		spi0: spi@ff040000 {
+			compatible = "xlnx,zynq-spi-r1p6";
+			status = "okay";
+			interrupt-parent = <&gic>;
+			interrupts = <0 19 4>;
+			reg = <0x0 0xff040000 0x0 0x1000>;
+			clock-names = "ref_clk", "pclk";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			power-domains = <&zynqmp_firmware PD_SPI_0>;
+			num-cs = <1>;
+		    spidev@0{
+		        	compatible = "rohm,dh2228fv";
+		        	reg = <0x0>;
+		        	spi-max-frequency = <200000000>;
+		    };
+		};	
+		
+	};
+
+};
+```
+
 ## build_image    
 https://coldnew.github.io/b394a9ce/   
 當完成petalinux-build，準備燒板子，執行以下命令，並且把BOOT.bin , image.ub丟到boot區即可
