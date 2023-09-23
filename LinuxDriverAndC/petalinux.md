@@ -87,7 +87,50 @@ https://github.com/NonerKao/syscall30
 5. 開機後可以在以下路徑找到module driver
     > /lib/modules/5.10.0-xilinx-v2021.2/extra/
 
+## DeviceTree  
+```petalinux-config -c device-tree```可以編譯出```image.ub```，此為系統所使用的devicetree,
+* 以下為DeviceTree兩個node的寫法
+```
+&spi0 {
+	status = "okay";
+	num-cs = <2>;
+	spidev@0 {
+		compatible = "rohm,dh2228fv";
+		spi-max-frequency = <200000000>;
+		reg = <0>;
+	};
+	spidev@1 {
+		compatible = "rohm,dh2228fv";
+		spi-max-frequency = <200000000>;
+		reg = <1>;
+	};
+* 以下為兩個PS SPI都使用的寫法，記得要改好XSA，否則開機modprobe就會有錯誤訊息，無法產生node
+```
+&spi0 {
+	status = "okay";
+	num-cs = <2>;
+	spidev@0 {
+		compatible = "rohm,dh2228fv";
+		spi-max-frequency = <200000000>;
+		reg = <0>;
+	};
+	spidev@1 {
+		compatible = "rohm,dh2228fv";
+		spi-max-frequency = <200000000>;
+		reg = <1>;
+	};
+};	
 
+&spi1 {
+	status = "okay";
+	num-cs = <1>;
+	spidev@0 {
+		compatible = "rohm,dh2228fv";
+		spi-max-frequency = <200000000>;
+		reg = <0>;
+	};
+};	
+```
 ## build_image    
 https://coldnew.github.io/b394a9ce/   
 當完成petalinux-build，準備燒板子，執行以下命令，並且把BOOT.bin , image.ub丟到boot區即可
