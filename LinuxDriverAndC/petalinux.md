@@ -129,7 +129,7 @@ https://github.com/NonerKao/syscall30
 		spi-max-frequency = <200000000>;
 		reg = <0>;
 	};
-	spidev@1 {
+	spidev_test@1 {		/* 命名為spidev_test或spidev不影響實際在/dev/的命名 */
 		compatible = "rohm,dh2228fv";
 		spi-max-frequency = <200000000>;
 		reg = <1>;
@@ -139,7 +139,7 @@ https://github.com/NonerKao/syscall30
 &spi1 {				/*& 表示繼承default device tree */
 	status = "okay";
 	num-cs = <1>;		/* 因為有一個node會有兩個cs所以num-cs為1 */
-	spidev@0 {
+	123456@0 {		/* 命名為123456不影響實際在/dev/的命名 */
 		compatible = "rohm,dh2228fv";
 		spi-max-frequency = <200000000>;
 		reg = <0>;
