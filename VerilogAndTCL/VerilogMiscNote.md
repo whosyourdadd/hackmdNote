@@ -119,7 +119,7 @@ http://www.gstitt.ece.ufl.edu/courses/fall15/eel4720_5721/labs/refs/AXI4_specifi
 [CSDN xilinx AXI4 bus ]
 https://blog.csdn.net/DengFengLai123/article/details/113530982
 
-![image alt](https://img-blog.csdnimg.cn/20210201221602921.png =110%x)
+![image alt](https://img-blog.csdnimg.cn/20210201221602921.png )
 
 ![image alt](https://img-blog.csdnimg.cn/20210201221558474.png)
 
