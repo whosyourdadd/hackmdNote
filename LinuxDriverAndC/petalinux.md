@@ -70,14 +70,15 @@ https://github.com/NonerKao/syscall30
 ---
 ## Module或APP設定
 1. create module sample       
-```$ petalinux-create -t modules -n modulename --enable```    
-```$ petalinux-create -t apps -n myapp --enable```      
+```$ petalinux-create -t modules -n modulename --enable```  
+```$ petalinux-create -t apps -n myapp --enable```
+    >寫module的範例: [module sample](https://github.com/Xilinx/Embedded-Design-Tutorials/tree/master/docs/Introduction/Zynq7000-EDT/ref_files/example12/LKM)  
     >(名稱不要大寫編譯會過不了)  
     > 可以在以下路徑找到  
     > <project name>/project-spec/meta-user/recipes-modules/  
     > <project name>/project-spec/meta-user/recipes-apps/  
 
-2. 改成自己所需的moudle以後編譯  
+3. 改成自己所需的moudle以後編譯  
     ```petalinux-build```   
     ```petalinux-build -c myapp```      
     ```petalinux-config -c rootfs```   
