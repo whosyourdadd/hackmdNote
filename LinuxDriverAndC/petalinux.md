@@ -63,9 +63,15 @@ https://github.com/NonerKao/syscall30
 6. 使用qemu開機模擬  
    ```petalinux-boot --qemu --kernel```
 
+	若出現```Failed to boot. Image file '/<project-path>/pre-built/linux/images/pmu_rom_qemu_sha3.elf' doesn't exist.```
+	的時後，直接```mkdir -p pre-built/linux/images``` 再把pmu_rom_qemu_sha3.elf複製進去即可
 
-若出現```Failed to boot. Image file '/<project-path>/pre-built/linux/images/pmu_rom_qemu_sha3.elf' doesn't exist.```
-的時後，直接```mkdir -p pre-built/linux/images``` 再把pmu_rom_qemu_sha3.elf複製進去即可
+ 7. build_image     
+	https://coldnew.github.io/b394a9ce/   
+	當完成petalinux-build，準備燒板子，執行以下命令，並且把BOOT.bin , image.ub丟到boot區即可
+	```sh!
+	petalinux-package --boot --u-boot --fpga ./images/linux/system.bit --force
+	```
 
 ---
 ## Module或APP設定
@@ -175,9 +181,4 @@ https://github.com/NonerKao/syscall30
 };
 ```
 
-## build_image    
-https://coldnew.github.io/b394a9ce/   
-當完成petalinux-build，準備燒板子，執行以下命令，並且把BOOT.bin , image.ub丟到boot區即可
-```sh!
-petalinux-package --boot --u-boot --fpga ./images/linux/system.bit --force
-```
+
